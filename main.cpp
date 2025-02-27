@@ -77,13 +77,19 @@ void viewFile(string file){
     }
 }
 
+void helpInfoFormat(string command, string details){
+    cout<<command+"      "+details<<'\n';
+}
+
 void helpinfo(){
+
     cout<<"Usage:"<<'\n';
+    cout<<'\n'<<"proj [command]"<<'\n';
     cout<<"proj"<<'\n';
-    cout<<"  proj [command]"<<'\n';
     cout<<'\n';
     cout<<"Available Commands:"<<'\n';
-    cout<<"  view	view the file"<<'\n';
+    helpInfoFormat("view", "views the file");
+    helpInfoFormat("add", "writes to the file. Start the lines with flags. (.to do, /complete, *idea, #heading)");
     cout<<'\n';
     cout<<"Flags:"<<'\n';
     cout<<"  --help, -h	    help for projgo"<<'\n';
@@ -104,7 +110,7 @@ void runMode(){
             string message;
             cout<<"What would you like to write?";
             getline(cin, message);
-            write("proj.txt", message);
+            write("test.txt", message);
         }
     }
 }
@@ -114,10 +120,10 @@ int main(int argc, char* argv[]){
     if(argc == 2 and argv[1] == help){
         helpinfo();
     }else if(argc == 2 and argv[1] == view){
-        viewFile("proj.txt");
+        viewFile("test.txt");
     }else if(argc == 3 and argv[1] == add){
         string message = argv[2];
-        write("proj.txt", message);
+        write("test.txt", message);
     }else if(argc == 1){
         runMode();
     }
