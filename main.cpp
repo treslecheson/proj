@@ -110,7 +110,7 @@ void runMode(){
             string message;
             cout<<"What would you like to write?";
             getline(cin, message);
-            write("test.txt", message);
+            write("proj.txt", message);
         }
     }
 }
@@ -120,10 +120,10 @@ int main(int argc, char* argv[]){
     if(argc == 2 and argv[1] == help){
         helpinfo();
     }else if(argc == 2 and argv[1] == view){
-        viewFile("test.txt");
+        viewFile("proj.txt");
     }else if(argc == 3 and argv[1] == add){
         string message = argv[2];
-        write("test.txt", message);
+        write("proj.txt", message);
     }else if(argc == 1){
         runMode();
     }
